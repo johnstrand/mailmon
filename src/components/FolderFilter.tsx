@@ -29,7 +29,7 @@ export function FolderFilter({ folders, excludedFolders, onToggleFolder }: Props
         onClick={() => setOpen((o) => !o)}
         className={`flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium border rounded transition-colors ${
           hiddenCount > 0
-            ? 'text-orange-700 border-orange-400 bg-orange-50 hover:bg-orange-100'
+            ? 'text-blue-700 border-blue-400 bg-blue-50 hover:bg-blue-100'
             : 'text-gray-600 border-gray-300 hover:bg-gray-100'
         }`}
         title={`${folders.length - hiddenCount} of ${folders.length} folders visible`}

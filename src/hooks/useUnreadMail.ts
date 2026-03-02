@@ -105,7 +105,7 @@ export function useUnreadMail() {
             new Date(b.receivedDateTime).getTime() - new Date(a.receivedDateTime).getTime(),
         );
         setMessages(all);
-        setFolders([...new Set(all.map((m) => m.folderName))].sort());
+        setFolders(allFolders.map((f) => f.displayName).sort());
         setLastRefreshed(new Date());
       });
     } catch (err) {
