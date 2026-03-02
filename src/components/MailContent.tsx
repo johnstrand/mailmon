@@ -79,7 +79,7 @@ export function MailContent({ message, markingIds, onMarkRead, onAddToast }: Pro
             srcDoc={/<head[\s>]/i.test(message.body.content)
               ? message.body.content.replace(/<head([^>]*)>/i, '<head$1><base target="_blank">')
               : `<base target="_blank">${message.body.content}`}
-            sandbox="allow-same-origin allow-popups"
+            sandbox="allow-same-origin allow-popups allow-popups-to-escape-sandbox"
             className="w-full h-full min-h-[400px] bg-white rounded border border-gray-200"
             title="Mail body"
           />
