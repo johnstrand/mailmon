@@ -76,8 +76,10 @@ export function MailContent({ message, markingIds, onMarkRead, onAddToast }: Pro
       <div className="flex-1 overflow-auto bg-gray-50 p-4">
         {message.body.contentType === 'html' ? (
           <iframe
-            srcDoc={message.body.content}
-            sandbox="allow-same-origin"
+            srcDoc={/<head[\s>]/i.test(message.body.content)
+              ? message.body.content.replace(/<head([^>]*)>/i, '<head$1><base target="_blank">')
+              : `<base target="_blank">${message.body.content}`}
+            sandbox="allow-same-origin allow-popups"
             className="w-full h-full min-h-[400px] bg-white rounded border border-gray-200"
             title="Mail body"
           />
